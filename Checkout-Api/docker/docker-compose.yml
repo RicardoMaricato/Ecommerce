@@ -2,24 +2,20 @@ version: '3.1'
 
 services:
   database-checkout:
-    image: postgres:latest
+    image: mysql
     environment:
-      POSTGRES_PASSWORD: admin
-      POSTGRES_USER: admin
-      POSTGRES_DB: checkout
+      MYSQL_ROOT_PASSWORD: root
     container_name: db-checkout
     ports:
-      - 5431:5432
+      - 3306:3306
 
   database-payment:
-    image: postgres:latest
+    image: mysql
     environment:
-      POSTGRES_PASSWORD: admin
-      POSTGRES_USER: admin
-      POSTGRES_DB: payment
+      MYSQL_ROOT_PASSWORD: root
     container_name: db-payment
     ports:
-      - 5433:5432
+      - 3307:5432
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
