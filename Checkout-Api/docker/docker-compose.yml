@@ -9,7 +9,8 @@ services:
       POSTGRES_DB: checkout
     container_name: db-checkout
     ports:
-      - 5432:5432
+      - 5431:5432
+
   database-payment:
     image: postgres:latest
     environment:
@@ -19,6 +20,7 @@ services:
     container_name: db-payment
     ports:
       - 5433:5432
+
   zookeeper:
     image: confluentinc/cp-zookeeper:latest
     hostname: zookeeper
@@ -28,6 +30,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+
   kafka:
     image: confluentinc/cp-enterprise-kafka:latest
     hostname: broker
@@ -50,6 +53,7 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+
   schema-registry:
     image: confluentinc/cp-schema-registry:latest
     hostname: schema-registry
