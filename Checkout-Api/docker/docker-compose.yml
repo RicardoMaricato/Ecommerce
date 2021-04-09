@@ -2,20 +2,22 @@ version: '3.1'
 
 services:
   database-checkout:
-    image: mysql
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: checkout
     container_name: db-checkout
     ports:
       - 3306:3306
 
   database-payment:
-    image: mysql
+    image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: payment
     container_name: db-payment
     ports:
-      - 3307:5432
+      - 3307:3306
 
   zookeeper:
     image: confluentinc/cp-zookeeper:latest

@@ -1,5 +1,6 @@
 spring:
   datasource:
+    driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/checkout?createDatabaseIfNotExist=true
     username: root
     password: root
