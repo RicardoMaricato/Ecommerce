@@ -25,6 +25,7 @@ repositories {
 
 ext {
 	set('springCloudVersion', "2020.0.2")
+	set('testContainersVersion', '1.14.3')
 }
 
 dependencies {
@@ -43,6 +44,8 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'org.springframework.cloud:spring-cloud-stream-test-support'
+	testImplementation "org.testcontainers:testcontainers:${testContainersVersion}"
+	testImplementation "org.testcontainers:kafka:${testContainersVersion}"
 }
 
 dependencyManagement {
